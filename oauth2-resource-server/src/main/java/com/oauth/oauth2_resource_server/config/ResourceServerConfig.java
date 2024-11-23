@@ -1,10 +1,14 @@
 package com.oauth.oauth2_resource_server.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
+import org.springframework.security.oauth2.core.OAuth2TokenValidator;
+import org.springframework.security.oauth2.jwt.*;
 import org.springframework.security.web.SecurityFilterChain;
+
+import java.time.Duration;
 
 @EnableWebSecurity
 public class ResourceServerConfig {
@@ -20,4 +24,6 @@ public class ResourceServerConfig {
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt()) // Enable OAuth2 resource server with JWT decoding
                 .build();
     }
+
+
 }
